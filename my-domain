@@ -1,4 +1,7 @@
 
+upstream sub1{
+        server   127.0.0.1:81;
+}
 upstream sub2{
         server   127.0.0.1:82;
 }
