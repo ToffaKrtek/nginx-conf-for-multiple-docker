@@ -1,0 +1,18 @@
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  script:
+    - echo "Building project..."
+    - mkdir build
+    - touch build/index.html
+    - zip -r build.zip build
+
+deploy:
+  stage: deploy
+  script:
+    - echo "Deploying project..."
+    - scp build.zip user@server:/path/to/destination/
+    - ssh user@server "cd /path/to/destination/ && unzip build.zip"
